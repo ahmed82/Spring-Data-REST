@@ -1,0 +1,40 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+spring:
+  sql.init.mode: always
+  datasource:
+    url: jdbc:h2:mem:testdb;INIT=CREATE SCHEMA IF NOT EXISTS webApp
+    driverClassName: org.h2.Driver 
+    username: sa
+    password: 
+    #initialization-mode: embedded
+  h2:
+    console.enabled: true
+
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      #default_schema: AhmedTestDBSchema
+      #use-new-id-generator-mappings: false
+      #naming:
+       # physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+
+logging:
+  level:
+    org.springframework.web: ERROR
+    com.rbs.licensemanagement: DEBUG
+  pattern:
+    console: "%d{yyy-mm-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyy-mm-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file: /var/log/license-managment/license-api.log
+log4j2:
+ formatMsgNoLookups: true
+ 
+ 
+ 
+ 
