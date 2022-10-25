@@ -18,5 +18,5 @@ public class WebsiteUser {
     private String name;
     private String email;
 
-    // standard getters and setters
+
 }
